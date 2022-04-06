@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="stylesheet" href="static/style.css">
+	<title>CSCB20 - Introduction to Databases and Web Applications</title>
+</head>
+<body>
+	<div class="container">
+		<div class = "pagetop">
+			<div class="header">
+				<h1>CSCB20 - Introduction to Databases and Web Applications</h1>
+			</div>
+			<div class = "sidebar">
+				<nav class = "nav">
+					<ul class = "sidebarul">
+						{% if session.name %}
+						<li class="baritem">
+							<a href="{{ url_for('index') }}" class="linklistitem">Home</a>
+						</li>
+						<li class="baritem">
+							<a href="{{ url_for('piazza')}}" class="linklistitem">Piazza</a>
+						</li>
+						<li class="baritem">
+							<a href="{{ url_for('markus')}}" class="linklistitem">Markus</a>
+						</li>
+						<li class="baritem">
+							<a href="{{ url_for('assignments') }}" class="linklistitem">Assignments</a>
+						</li>
+						<li class="baritem">
+							<a href="{{ url_for('grades') }}" class="linklistitem">Grades</a>
+						</li>
+						<li class="baritem">
+							<a href="{{ url_for('anonfeedback') }}" class="linklistitem">Anon Feedback</a>
+						</li>
+						<li class="baritem">
+							<a href="{{ url_for('syllabus')}}" class="linklistitem">Syllabus</a>
+						</li>
+						<li class="baritem">
+							<a href="{{ url_for('lectures')}}" class="linklistitem">Lectures</a>
+						</li>
+						<li class="baritem">
+							<a href="{{ url_for('labs')}}" class="linklistitem">Labs</a>
+						</li>
+						<li class="baritem">
+							<a href="{{ url_for('resources')}}" class="linklistitem">Resources</a>
+						</li>
+						<li class="baritem">
+							<a href="{{ url_for('courseteam')}}" class="linklistitem">Course Team</a>
+						</li>
+						{% if session.role == "Instructor" %}
+							<li class="baritem">
+								<a href="{{ url_for('addcourse') }}" class="linklistitem">Add Course</a>
+							</li>
+						{% endif %}
+						<li class = "baritem">
+							<a href = "{{ url_for('logout') }}" class = "linklistitem">Logout</a>
+						</li>
+						
+					{% else %}
+						<li class = "baritem">
+						<a href = "{{ url_for('signup') }}" class = "linklistitem">Register</a>
+						</li>
+						<li class = "baritem">
+						<a href = "{{ url_for('login') }}" class = "linklistitem">Login</a>
+						</li>
+					{% endif %}
+					</ul>
+				</nav>
+			</div>
+		</div>
+		<div class="content">
+		
+		{% block content %}  
+		{% endblock %}
+
+		</div>
+		
+	</div>
+
+
+
+	<footer id="footer">
+		<div id="footercontent">
+			Check out the Faculty of Computer Science 
+			<a href="https://www.utsc.utoronto.ca/cms/faculty-of-computer-science">here.</a>
+		</div>
+		<div id="footercontent2">
+			Website designed by: Shun, Takuya, and Yui
+		</div>   
+		
+	</footer>
+
+</body>
+</html>

@@ -1,0 +1,61 @@
+{% extends 'template.html' %}
+{% block content %}
+
+<!-- {% with messages = get_flashed_messages(with_categories = True) %}
+  {% if messages %}
+    {% for category, message in messages %}
+      <div>{{ category }} - {{ message }}</div>
+    {% endfor %}
+  {% endif %}
+{% endwith %} -->
+
+
+
+<!-- <h2 class="subheader">Login</h2> -->
+<!-- <form method = "POST">
+  <label for = "">email</label>
+  <input type = "text" name = "email">
+
+  <label for = "">password</label>
+  <input type = "password" name = "password">
+  
+  <input type = "submit" value = "Login">
+  <br>
+
+  <label for = "">If you are a new user: 
+    <a href = "{{url_for('signup')}}">Signup</a>
+  </label>
+</form> -->
+
+<div class="form_container">
+	<h2 class ="log_header">Log In</h2>
+	<form method = "POST" class="loginform">
+		<div class="form_item">
+			<label for = ""></label>
+			<input type = "text" name = "username" placeholder="Username" required></input>
+		</div>
+		
+		<div class="form_item">
+			<label for = ""></label>
+			<input type = "password" name = "password" placeholder="Password" required></input>
+		</div>
+
+		{% with messages = get_flashed_messages() %}
+			{% if messages %}
+				{% for message in messages %}
+				<div class="opt_message">{{ message }}</div>
+				{% endfor %}
+			{% endif %}
+		{% endwith %}
+
+		<div class="buttonpanel">
+			<input type = "submit" value = "Login" class="log_button"></input>
+		</div>
+
+	</form>
+	<div class = "form_bottom">
+		<a href = "{{url_for('signup')}}">Create an account</a>
+	</div>
+</div>
+
+{% endblock %}

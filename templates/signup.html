@@ -1,0 +1,88 @@
+{% extends 'template.html' %}
+
+<!-- {% with messages = get_flashed_messages() %}
+  {% if messages %}
+    {% for message in messages %}
+      <div>{{ message }}</div>
+    {% endfor %}
+  {% endif %}
+{% endwith %} -->
+
+{% block content %}
+	<div class = "form_container">
+		<h2 class="log_header">User Registration</h2>
+		<form method = "post">
+			<div class="form_item">
+				<input type = "text" name = "username" placeholder="Username" required></input>
+			</div>
+	
+			<div class="form_item">
+				<input type = "text" name = "firstname" placeholder="First Name" required></input>
+			</div>
+
+			<div class="form_item">
+				<input type = "text" name = "lastname" placeholder="Last Name" required></input>
+			</div>
+			
+
+			<div class="form_item">
+				<input type = "text" name = "email" placeholder="Email" required></input>
+			</div>
+			
+			<div class="form_item">
+				<input type = "password" name = "password" placeholder="Password" required></input>
+			</div>
+
+			<h4 for = "">Choose your role:</h4>
+			<select class="form_item" name="role">
+				<option type = "text">Student</option>
+				<option type = "text">Instructor</option>
+			</select>
+
+			{% with messages = get_flashed_messages() %}
+				{% if messages %}
+					{% for message in messages %}
+					<div class="signup_error_message">{{ message }}</div>
+					{% endfor %}
+				{% endif %}
+			{% endwith %}
+			
+			<div class="buttonpanel">
+				<input type = "submit" value = "Register" class="log_button"></input>
+			</div>
+		</form>
+		<div class="form_bottom">
+			<div class="form_bottom_text">If you already have an account: </div><br>
+			<a href = "{{url_for('login')}}">Login</a>
+		</div>
+	</div>
+
+	<!-- Original code below -->
+
+	<!-- <h1>User Registration</h1>
+  	<form method = "post">
+    	<label for = "">username</label>
+    	<input type = "text" name = "username">
+
+    	<label for = "">firstname</label>
+    	<input type = "text" name = "firstname">
+
+		<label for = "">lastanme</label>
+		<input type = "text" name = "lastname">
+
+		<label for = "">email</label>
+		<input type = "text" name = "email">
+
+		<label for = "">role</label>
+		<input type = "text" name = "role">
+
+		<input type = "password" name = "password">
+
+		<input type = "submit" value = "New Registration">
+    	<br>
+
+		<label for = "">If you already have an account: 
+		<a href = "{{url_for('login')}}">Login</a>
+		</label>
+ 	</form> -->
+{% endblock %}
