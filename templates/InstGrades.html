@@ -1,0 +1,58 @@
+{% extends "template.html" %}
+{% block content %}   
+
+<!-- <div  class="content"> -->
+<div class="form_container">
+	<h2 class="log_header">Enter the grade of the student</h2>
+	<form method="POST" class="loginform">
+		<div class="form_item">
+			<label for = ""></label>
+			<input type = "text" name = "username" placeholder="Username" placeholder= "Student's username" required></input>
+		</div>
+
+		<div class="form_item">
+			<label for = ""></label>
+			<input type = "text" name = "assignment" placeholder="Assignment Name" required></input>
+		</div>
+
+		<div class="form_item">
+			<label for = ""></label>
+			<input type = "text" name = "grade" placeholder="Grade of the Student" required></input>
+		</div>
+
+		<div class="form_item">
+			<label for = ""></label>
+			<input type = "text" name = "outof" placeholder="Out of" required></input>
+		</div>
+
+		<!-- <labal for="username"> Student's username</labal>
+		<input type="text" name="username">
+
+		<labal for="assignment"> Name of the assignment</labal>
+		<input type="text" name="assignment">
+
+		<labal for="grade"> Grade of the student</labal>
+		<input type="float" name="grade">
+
+		<labal for="outof"> Full mark of the assignment</labal>
+		<input type="integer" name="outof"> -->
+
+		<div class="buttonpanel">
+			<button tupe="submit" value = "Login" class="log_button">Submit</button>
+		</div>
+
+		{% with messages = get_flashed_messages() %}
+			{% if messages %}
+				{% for message in messages %}
+				<div class="opt_message">{{ message }}</div>
+				{% endfor %}
+			{% endif %}
+		{% endwith %}
+
+	</form>
+</div>
+	
+<!-- </div> -->
+
+
+{% endblock %}
